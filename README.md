@@ -6,7 +6,15 @@ Este perfil documenta contribuciones reales de IA asistida en tareas de administ
 
 ## Contribuciones
 
-- [potfit/potfit#121](https://github.com/potfit/potfit/pull/121) — fix de compatibilidad con headers LAPACK/LAPACKE modernos (convención `LAPACK_FORTRAN_STRLEN_END`), encontrado al empaquetar potfit para Spack contra OpenBLAS (sin Intel/MKL) en AMD Zen4.
+- [potfit/potfit#121](https://github.com/potfit/potfit/pull/121) — fix de compatibilidad con headers LAPACK/LAPACKE modernos (convención `LAPACK_FORTRAN_STRLEN_END`), encontrado al empaquetar potfit para Spack contra OpenBLAS (sin Intel/MKL) en AMD Zen4. **Mergeado** (adaptado por el maintainer en potfit/potfit#122).
+- [openxla/xla#47794](https://github.com/openxla/xla/pull/47794) — fix de inclusión duplicada de `cupti_driver_cbid.h` (redefinición de enum) al compilar TensorFlow con `HERMETIC_CUDA_VERSION=12.4.1`, para correr en GPUs con driver que no soporta CUDA 12.5+. Redirigido desde tensorflow/tensorflow#125963 (el archivo es vendored desde openxla/xla). **Aprobado**, esperando merge.
+- Seis fixes a recipes de [spack/spack-packages](https://github.com/spack/spack-packages), encontrados empaquetando el stack HPC completo con AOCC + AMD Zen4:
+  - [#6202](https://github.com/spack/spack-packages/pull/6202) octave — bug de lógica booleana + deps GL/GLU faltantes para `+qt`. **Aprobado**.
+  - [#6203](https://github.com/spack/spack-packages/pull/6203) hpl — falso positivo de nvblas en el auto-probe de BLAS.
+  - [#6204](https://github.com/spack/spack-packages/pull/6204) scafacos — `.pc` mal formado (causa raíz en `configure.ac`, con fix upstream propio en scafacos/scafacos#44).
+  - [#6205](https://github.com/spack/spack-packages/pull/6205) gnuplot — build roto con `ld.lld` (clang/AOCC).
+  - [#6206](https://github.com/spack/spack-packages/pull/6206) grace — detección de Motif rota en builds con Xpm embebido + strictness de GCC14+.
+  - [#6207](https://github.com/spack/spack-packages/pull/6207) lammps — `CUDA_HOST_COMPILER` (variable legacy de FindCUDA) nunca se seteaba, ignorando el compilador host de CUDA elegido. **Mergeado**.
 
 ## Enlaces institucionales
 
