@@ -4,6 +4,14 @@ Administrador del cluster HPC de **IFIMAR-UNMDP** (Instituto de Investigaciones 
 
 Este perfil documenta contribuciones reales de IA asistida en tareas de administración de sistemas HPC: migraciones de stack de software, benchmarking, y fixes upstream a proyectos de código abierto usados por la comunidad científica.
 
+## 🤖 Proyecto: [gonzabot](https://github.com/gonzabotmdp/gonzabot)
+
+Asistente de IA para usuarios de HPC (Slurm + Spack) que revisa un `sbatch` **antes** de correrlo y corrige errores de configuración, mal uso de recursos, y pedidos de recursos sobredimensionados — combinando reglas determinísticas con un LLM local (vía [vLLM](https://github.com/vllm-project/vllm)).
+
+En producción desde 2026 en el cluster de IFIMAR. Casos reales medidos: hasta **2.7x** más rápido tras aplicar su sugerencia (mismo nodo, antes/después). Sin dependencias externas de Python más allá de la librería estándar.
+
+**→ [Repositorio](https://github.com/gonzabotmdp/gonzabot) · [README en español](https://github.com/gonzabotmdp/gonzabot/blob/main/README.es.md)**
+
 ## Contribuciones
 
 - [potfit/potfit#121](https://github.com/potfit/potfit/pull/121) — fix de compatibilidad con headers LAPACK/LAPACKE modernos (convención `LAPACK_FORTRAN_STRLEN_END`), encontrado al empaquetar potfit para Spack contra OpenBLAS (sin Intel/MKL) en AMD Zen4. **Mergeado** (adaptado por el maintainer en potfit/potfit#122).
